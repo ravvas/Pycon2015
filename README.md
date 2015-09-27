@@ -7,9 +7,9 @@ Below is the step by step procedure to setup the environment for Running Hadoop 
 Note : Currently this is in Draft mode. 
 
 
-1) Launch an Amazon EC2 instance ( Linux instance) 
-2) Configure AWS S3 in amazon ec2 instance  ..This will let you copy files between s3 and amazon ec2.   
-3) Download Compressed logs from wikipedia to amazon ec2       
+1) Launch an Amazon EC2 instance ( Linux instance)  
+2) Configure AWS S3 in amazon ec2 instance  ..This will let you copy files between s3 and amazon ec2.
+3) Download Compressed logs from wikipedia to amazon ec2
 4) unzip the log files in amazon ec2 machine and transfer them  to s3 ( Amazon storage)
 5) Create mapper and reducer for the problem statement 
 6) Upload the mapper and reducer to s3
