@@ -1,0 +1,35 @@
+download the page that have list of the urls for that month in wiki : say for the month of June : https://dumps.wikimedia.org/other/pagecounts-raw/2015/2015-06/ 
+
+wget https://dumps.wikimedia.org/other/pagecounts-raw/2015/2015-06/
+
+it downloads the file as index.html with each line is having the format of : 
+
+<li><a href="pagecounts-20150602-020000.gz">pagecounts-20150602-020000.gz</a>, size 84M</li>\
+
+Now we need to extract .gz file for that 
+
+use the code : 
+
+python extractgz.py > allfiles
+
+now we need to donwload each file , unzip it , copy them to s3 immediately and delete from ec2 instance 
+
+use script downloadwikifiles.sh
+
+We want to execute this script in background and run even after logout. Because it takes almost 8 hours and we dont want to monitor and have putty session active till it completes. 
+
+After executing using bash downloadwikifiles.sh allfiles
+press ctrl + Z 
+ then follow below steps : 
+
+
+[1]+  Stopped                 myprogram
+$ disown -h %1
+$ bg 1
+[1]+ myprogram &
+$ logout
+
+
+
+
+
