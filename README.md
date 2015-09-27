@@ -7,10 +7,10 @@ Below is the step by step procedure to setup the environment for Running Hadoop 
 Note : Currently this is in Draft mode. 
 
 
-1) Pre-requisites in Amazon AWS. 
-   go thru this link http://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-prerequisites.html for 
-i) Create Amazon AWS account 
-ii) create Amazon S3 Bucket( Storage) for storing input,output and map reducer scripts etc. 
+1) Pre-requisites in Amazon AWS.
+   go thru this link http://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-prerequisites.html for  
+i) Create Amazon AWS account  
+ii) create Amazon S3 Bucket( Storage) for storing input,output and map reducer scripts etc.    
 iii) create an Amazon EC2 Key pair to connect to the nodes in amazon ec2 and EMR thru secure Shell(SSH). 
 iv) Create IAM Profile 
 v) Install Putty and Puttygen
