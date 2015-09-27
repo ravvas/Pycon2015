@@ -20,7 +20,7 @@ ii) Configure AWS S3 in amazon ec2 instance  ..This will let you copy files betw
 iii) download index file containing links for each hour in  a month. 
 iv) Run python script to extract links from the index file
 v) Run shell script that downloads the files from wikipedia, unizip the file, upload it to s3 and remove local file 
-#TODO Ipython to test locally
+TODO Ipython to test locally
 3) Create mapper and reducer for the problem statement and upload them to s3
 4) Setup buckets in s3 for input,scripts,output
 5) launch EMR ( Hadoop cluster) and Run Map reducer using Hadoop streaming. 
