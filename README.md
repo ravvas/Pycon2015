@@ -4,7 +4,7 @@ You can learn Hadoop Map reduce using real Big data with less effort and cost.
 
 Below is the step by step procedure to setup the environment for Running Hadoop cluster in amazon aws and also supporting scripts used for both extracting the data from wikipedia and other automation of activities.
 
-Note : Currently this is in Draft mode. 
+#Note : Currently this is in Draft mode. 
 
 
 1) Pre-requisites in Amazon AWS.
