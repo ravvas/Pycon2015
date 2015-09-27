@@ -1,4 +1,4 @@
-# Pycon2015
+# Explore Big Data using Simple Python Code and Cloud Environment
 Presentation deck and other supporting material for Pycon 2015 talk on "Explore Big Data using Simple Python Code and Cloud Environment". 
 You can learn Hadoop Map reduce using real Big data with less effort and cost. 
 
