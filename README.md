@@ -11,15 +11,15 @@ Note : Currently this is in Draft mode.
    go thru this link http://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-prerequisites.html for  
 i) Create Amazon AWS account  
 ii) create Amazon S3 Bucket( Storage) for storing input,output and map reducer scripts etc.    
-iii) create an Amazon EC2 Key pair to connect to the nodes in amazon ec2 and EMR thru secure Shell(SSH). 
-iv) Create IAM Profile 
-v) Install Putty and Puttygen
-2) Launch an Amazon EC2 instance ( Linux instance) to download wikifiles , unzip and upload them to s3( Amazon storage)
-i) Launching a simple micro instance loaded with python software etc. 
-ii) Configure AWS S3 in amazon ec2 instance  ..This will let you copy files between s3 and amazon ec2.
-iii) download index file containing links for each hour in  a month. 
-iv) Run python script to extract links from the index file
-v) Run shell script that downloads the files from wikipedia, unizip the file, upload it to s3 and remove local file 
+iii) create an Amazon EC2 Key pair to connect to the nodes in amazon ec2 and EMR thru secure Shell(SSH).  
+iv) Create IAM Profile   
+v) Install Putty and Puttygen  
+2) Launch an Amazon EC2 instance ( Linux instance) to download wikifiles , unzip and upload them to s3( Amazon Storage)  
+i) Launching a simple micro instance loaded with python software etc.   
+ii) Configure AWS S3 in amazon ec2 instance  ..This will let you copy files between s3 and amazon ec2. 
+iii) download index file containing links for each hour in  a month.  
+iv) Run python script to extract links from the index file 
+v) Run shell script that downloads the files from wikipedia, unizip the file, upload it to s3 and remove local file  
 TODO Ipython to test locally
 3) Create mapper and reducer for the problem statement and upload them to s3
 4) Setup buckets in s3 for input,scripts,output
