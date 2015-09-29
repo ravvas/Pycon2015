@@ -6,6 +6,7 @@ Below is the step by step procedure to setup the environment for Running Hadoop 
 
 #Note : Currently this is in Draft mode. 
 
+0) Installation of Python and Ipython in local windows computer. Follow the steps in the document named "Python and IPython Installation"  
 
 1) Pre-requisites in Amazon AWS.
    go thru this link http://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-prerequisites.html for  
