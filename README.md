@@ -1,5 +1,5 @@
 # Explore Big Data using Simple Python Code and Cloud Environment
-Presentation deck and other supporting material for Pycon 2015 talk on "Explore Big Data using Simple Python Code and Cloud Environment". 
+Presentation deck and other supporting material on "Explore Big Data using Simple Python Code and Cloud Environment". 
 You can learn Hadoop Map reduce using real Big data with less effort and cost. 
 
 Below is the step by step procedure to setup the environment for Running Hadoop cluster in amazon aws and also supporting scripts used for both extracting the data from wikipedia and other automation of activities.
