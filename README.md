@@ -55,16 +55,18 @@ Now launch putty session with hostname as ec2-user@IP-Adrress. Now you will be a
    iv.  You can monitor the step status by clickon on view jobs against the step, and click on view tasks. You can see how many total tasks, pending tasks, completed tasks and running tasks.   
    v.   Once the job completed, the out put will be stored in output folder you assigned while creating the task   
 
-8.  Each reducer will create one out put file. Hence your results are not stored in one file. To merge all the output files and sort by number of requests, login to EC2 micro instance ( same procedure when did for extracting data from wiki) , do aws configure, copy the shell script "processout.sh" from github folder "process output" to ec2. 
-Execute the shell script by editing the fields with actual values. 
-Execute the script by typing "bash processout.sh <filename>" . Filename will be the file name you want to name for the results. 
-Now in results folder there are two files created :  top25<filename>.csv and  one with top 25 pages and another final<filename> all pages sort by number of requests in descending order. These files will be created in results folder in your bucket in s3.
+8.  Each reducer will create one out put file. Hence your results are not stored in one file. To merge all the output files and sort by number of requests
+   i. login to EC2 micro instance ( same procedure when did for extracting data from wiki) , do aws configure. 
+   ii. Copy the shell script "processout.sh" from github folder "process output" to ec2. 
+   iii.  Execute the shell script by editing the fields with actual values. 
+   iv.  Execute the script by typing "bash processout.sh <filename>" . Filename will be the file name you want to name for the results. 
+   v.  Now in results folder there are two files created :  top25<filename>.csv and  one with top 25 pages and another final<filename> all pages sort by number of requests in descending order. These files will be created in results folder in your bucket in s3.
 
 Tools we use for the case study : 
-1) AWS CLI  - Command level interface to launch the amazon aws 
-2) Putty 
-3) Python 
-4) IPython 
-5) 
+1) AWS CLI  - Command level interface to launch the amazon aws  
+2) Putty   
+3) Python   
+4) IPython   
+
 
 
