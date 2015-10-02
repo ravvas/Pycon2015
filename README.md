@@ -19,9 +19,11 @@ Below is the step by step procedure to setup the environment for Running Hadoop 
 With the above steps we are ready to start actual process :)  
 
 3) Launch an Amazon EC2 instance ( Linux instance) to download wikifiles , unzip and upload them to s3( Amazon Storage)  
-  i) Launching a simple micro instance loaded with python software etc : login to aws.amazon.com, in services select EC2. Click on Launch Instance , select Amazon Linux AMI from "Chose an Amazon Machine Image" step. select t2.micro in step 2 of " Choose an Instance Type". Click on "Review and Launch". Then in step 7, click on Launch. Before clicking on Launch, ensure that in step 7, under security groups port 22 is enabled which is required to connect to this instance from putty ssh. 
-After clicking on launch, select the keypair you created in the above steps and click on Launch instances. 
-Now click on View Instances. Once the instance status changes to "Running" , select the instance , at bottom under description copy the public IP address. 
+  i) Launching a simple micro instance loaded with python software etc : login to aws.amazon.com, in services select EC2. Click on Launch Instance , select Amazon Linux AMI from "Chose an Amazon Machine Image" step.   
+  select t2.micro in step 2 of " Choose an Instance Type". Click on "Review and Launch".   
+  Then in step 7, click on Launch. Before clicking on Launch, ensure that in step 7, under security groups port 22 is enabled   which is required to connect to this instance from putty ssh.  
+  After clicking on launch, select the keypair you created in the above steps and click on Launch instances.   
+  Now click on View Instances. Once the instance status changes to "Running" , select the instance , at bottom under       description copy the public IP address. 
 Now launch putty session with hostname as ec2-user@IP-Adrress. Now you will be able to login to ec2 instance you created.   
   ii) Configure AWS S3 in amazon ec2 instance  ..This will let you copy files between s3 and amazon ec2. 
     For this type "aws configure" , in the prompt enter credentials you copied when create IAM profile. for region and output format, leave blank.  
