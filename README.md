@@ -6,8 +6,8 @@ Below is the step by step procedure to setup the environment for Running Hadoop 
 
 #Note : Formatting remaining. 
 
-1) Installation of Python and Ipython in local windows computer. Follow the steps in the document named "Python and IPython Installation"  
-2) Pre-requisites in Amazon AWS.
+1.  Installation of Python and Ipython in local windows computer. Follow the steps in the document named "Python and IPython Installation"  
+2.  Pre-requisites in Amazon AWS.
    go thru this link http://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-prerequisites.html for  
    i.  Create Amazon AWS account  
    ii. create Amazon S3 Bucket( Storage) for storing input,output and map reducer scripts etc.    
@@ -18,7 +18,7 @@ Below is the step by step procedure to setup the environment for Running Hadoop 
 
 With the above steps we are ready to start actual process :)  
 
-3) Launch an Amazon EC2 instance ( Linux instance) to download wikifiles , unzip and upload them to s3( Amazon Storage)  
+3.  Launch an Amazon EC2 instance ( Linux instance) to download wikifiles , unzip and upload them to s3( Amazon Storage)  
   i) Launching a simple micro instance loaded with python software etc : login to aws.amazon.com, in services select EC2. Click on Launch Instance , select Amazon Linux AMI from "Chose an Amazon Machine Image" step.   
   select t2.micro in step 2 of " Choose an Instance Type". Click on "Review and Launch".   
   Then in step 7, click on Launch. Before clicking on Launch, ensure that in step 7, under security groups port 22 is enabled   which is required to connect to this instance from putty ssh.  
@@ -32,15 +32,15 @@ Now launch putty session with hostname as ec2-user@IP-Adrress. Now you will be a
    iv) This index file have all the links for the September month log files. So to extract the log file names from the index.html, execute the python program extractgz.py from "Extract data" folder by copying that to ec2 and typing "python extractgz.py > allfilenames" . Now a file called "allfilenames" created in the same directory with all the file names.  
    v) update the bucket name you create with <your buckethere> " in the sh file. Execute the shell script by typing "bash downloadwikifiles.sh allfilenames". This will download each of the file ( sequentially) unizip the file, upload it to s3 and remove local file.  Normally Amazon downloads these files at the rate of 2MB by sec and each file download time is approximately 50 to 60 sec. So approximately it will take 12 hours to download the files. So run the shell script in background so that even after disconnecting the putty session, the script execution will continue. To check whether all the files are downloaded , check the S3 bucket periodically and once all the files are downloaded , you can terminate the ec2 session by going to ec2 services and terminate the instance.  
 
-4) In the s3 bucket you created, create folders called input, logfiles, output, scripts and output. 
-3) Upload the mapper and reducer scripts from "mapreduce scripts" folder in github to scripts folder in your s3 bucket.
-5) Launch EMR ( Hadoop cluster) and Run Map reducer using Hadoop streaming. 
+4. In the s3 bucket you created, create folders called input, logfiles, output, scripts and output. 
+5. Upload the mapper and reducer scripts from "mapreduce scripts" folder in github to scripts folder in your s3 bucket.
+6. Launch EMR ( Hadoop cluster) and Run Map reducer using Hadoop streaming. 
  Before Launching EMR cluster, please check how much it will cost per hour in the page  https://aws.amazon.com/elasticmapreduce/pricing/ . 
-  i) After loginto your aws account , select EMR under Service -> Analytics.   
-  ii) Click on Create Cluster, select 'Go to Advanced Options"  
-  iii) Give any thing for cluster name  
-  iv) For log folder s3 location , select logfiles from the s3 bucket you created and append some unique logfile folder which will be created by EMR. So your log file location should belike this "s3://<yourbucket>/logfiles/<unique folder>  
-  v) In Hardware configuration section , for master go with m3.medium, for core select a Instance type. If you want to experiemnt to process 2-3 days files instead of one month, start with m3.xlarge with 2 or 3 count.   
+  i.  After loginto your aws account , select EMR under Service -> Analytics.   
+  ii. Click on Create Cluster, select 'Go to Advanced Options"  
+  iii.  Give any thing for cluster name  
+  iv.  For log folder s3 location , select logfiles from the s3 bucket you created and append some unique logfile folder which will be created by EMR. So your log file location should belike this "s3://<yourbucket>/logfiles/<unique folder>  
+  vi. In Hardware configuration section , for master go with m3.medium, for core select a Instance type. If you want to experiemnt to process 2-3 days files instead of one month, start with m3.xlarge with 2 or 3 count.   
   vi) Under security and access section, select the keypair you created initially. So that you will be able to login to Master node after cluster created.   
    vii) Under steps, select step, "streaming Program" and click on configure and add.   
    viii) Give any name for Name of the step, provider mapper, reducer scripts to mapper and reducer.   
