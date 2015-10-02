@@ -57,8 +57,10 @@ xiv) Then proceed by clicking on "create cluster".
    iv) You can monitor the step status by clickon on view jobs against the step, and click on view tasks. You can see how many total tasks, pending tasks, completed tasks and running tasks.   
    v) Once the job completed, the out put will be stored in output folder you assigned while creating the task   
 
-6) Each reducer will create one out put file. Hence your results are not stored in one file. To merge all the output files and sort by number of requests, login to EC2 micro instance ( same procedure when did for extracting data from wiki) , do aws configure, copy the shell script "  " from github folder "   " to ec2. 
-Execute the shell script by editing the fields with actual values. Now in results folder there are two files created : one with top 100 pages and another all pages sort by number of requests in descending order. 
+6) Each reducer will create one out put file. Hence your results are not stored in one file. To merge all the output files and sort by number of requests, login to EC2 micro instance ( same procedure when did for extracting data from wiki) , do aws configure, copy the shell script "processout.sh" from github folder "process output" to ec2. 
+Execute the shell script by editing the fields with actual values. 
+Execute the script by typing "bash processout.sh <filename>" . Filename will be the file name you want to name for the results. 
+Now in results folder there are two files created :  top25<filename>.csv and  one with top 25 pages and another final<filename> all pages sort by number of requests in descending order. These files will be created in results folder in your bucket in s3.
 
 Tools we use for the case study : 
 1) AWS CLI  - Command level interface to launch the amazon aws 
