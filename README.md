@@ -9,12 +9,12 @@ Below is the step by step procedure to setup the environment for Running Hadoop 
 1) Installation of Python and Ipython in local windows computer. Follow the steps in the document named "Python and IPython Installation"  
 2) Pre-requisites in Amazon AWS.
    go thru this link http://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-prerequisites.html for  
-   i. Create Amazon AWS account  
-   ii. create Amazon S3 Bucket( Storage) for storing input,output and map reducer scripts etc.    
-   iii. create an Amazon EC2 Key pair to connect to the nodes(Virtual servers)  in amazon ec2 and EMR thru secure Shell(SSH).  
-   iv. Create IAM Profile : This is required for accessing S3 storage from Ec2. Follow the steps at  http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html#cli-signup.  
-   v. Provide AmazonS3FullAccess previlages to the above created IAM Provide by going to IAM -> Users, click on the user and   attach policy called AmazonS3FullAccess. Now using the IAM credentials we can access S3 from Ec2. Only step remaining is once  you loginto the virtual server(ec2) , you need to do "aws configure" 
-  6. To Install Putty and Puttygen  and for converting the private key pair to putty format follow steps at  http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html  
+    i. Create Amazon AWS account  
+    ii. create Amazon S3 Bucket( Storage) for storing input,output and map reducer scripts etc.    
+    iii. create an Amazon EC2 Key pair to connect to the nodes(Virtual servers)  in amazon ec2 and EMR thru secure Shell(SSH).  
+    iv. Create IAM Profile : This is required for accessing S3 storage from Ec2. Follow the steps at  http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html#cli-signup.  
+    v. Provide AmazonS3FullAccess previlages to the above created IAM Provide by going to IAM -> Users, click on the user and   attach policy called AmazonS3FullAccess. Now using the IAM credentials we can access S3 from Ec2. Only step remaining is once  you loginto the virtual server(ec2) , you need to do "aws configure" 
+    vi. To Install Putty and Puttygen  and for converting the private key pair to putty format follow steps at  http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html  
 
 With the above steps we are ready to start actual process :)  
 
