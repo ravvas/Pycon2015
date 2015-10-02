@@ -48,14 +48,14 @@ Now launch putty session with hostname as ec2-user@IP-Adrress. Now you will be a
    xii.  You are ready to create cluster by clicking on "create cluster". Wait ..there is one more step remaining.   
    xiii.  For monitoring the status of the jobs and counters/configuration etc , hadoop will be pushing data to a web server in Master Node. To access the same from your local computer , you need to create a proxy tunnel. Steps for the same :   
    xiv.  Then proceed by clicking on "create cluster".   
-6) There are many things you can check while job is running :   
+7.   There are many things you can check while job is running     
    i.  Cluster will not create immediately after you click on create cluster. Amazon will take approximately 5-8 minutes to provision virtual servers, install required software, configure master and core/slave nodes.   
    ii.  As soon as the status of master in summary changes from provisioning to bootstrapping, master public DNS Ip address will be appeared. You can proxy throttle to that using putty as mentioned in above steps. Then in your firefox/chrome, you can type "http://<Master Ip Address>:8088" . And you are ready to monitor and review Cluster configuration, counters, jobs etc. Some time when you click on some links you may get can not access message, then in the URL bar replace the Internal Ip adress with Master Public IP address.   
    iii.   Once the status of both Master and Core changes to "running" , under the steps first hadoop debugging step will complete. Then the job/step you created will execute.   
    iv.  You can monitor the step status by clickon on view jobs against the step, and click on view tasks. You can see how many total tasks, pending tasks, completed tasks and running tasks.   
    v.   Once the job completed, the out put will be stored in output folder you assigned while creating the task   
 
-6) Each reducer will create one out put file. Hence your results are not stored in one file. To merge all the output files and sort by number of requests, login to EC2 micro instance ( same procedure when did for extracting data from wiki) , do aws configure, copy the shell script "processout.sh" from github folder "process output" to ec2. 
+8.  Each reducer will create one out put file. Hence your results are not stored in one file. To merge all the output files and sort by number of requests, login to EC2 micro instance ( same procedure when did for extracting data from wiki) , do aws configure, copy the shell script "processout.sh" from github folder "process output" to ec2. 
 Execute the shell script by editing the fields with actual values. 
 Execute the script by typing "bash processout.sh <filename>" . Filename will be the file name you want to name for the results. 
 Now in results folder there are two files created :  top25<filename>.csv and  one with top 25 pages and another final<filename> all pages sort by number of requests in descending order. These files will be created in results folder in your bucket in s3.
