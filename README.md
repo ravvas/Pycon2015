@@ -63,10 +63,10 @@ Now launch putty session with hostname as ec2-user@IP-Adrress. Now you will be a
    v.  Now in results folder there are two files created :  top25<filename>.csv and  one with top 25 pages and another final<filename> all pages sort by number of requests in descending order. These files will be created in results folder in your bucket in s3.  
 
 Tools we use for the case study :  
---  AWS CLI  - Command level interface to launch the amazon aws  
---   Putty   
---   Python   
---   IPython   
+-   AWS CLI  - Command level interface to launch the amazon aws  
+-    Putty   
+-    Python   
+-    IPython   
 
 
 
