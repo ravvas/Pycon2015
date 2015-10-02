@@ -1,4 +1,4 @@
-file1 = open("augindexfile",'r')
+file1 = open("indexfile",'r')
 
 for line in file1: 
 
