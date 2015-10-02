@@ -36,26 +36,26 @@ Now launch putty session with hostname as ec2-user@IP-Adrress. Now you will be a
 3) Upload the mapper and reducer scripts from "mapreduce scripts" folder in github to scripts folder in your s3 bucket.
 5) Launch EMR ( Hadoop cluster) and Run Map reducer using Hadoop streaming. 
  Before Launching EMR cluster, please check how much it will cost per hour in the page  https://aws.amazon.com/elasticmapreduce/pricing/ . 
-  i) After loginto your aws account , select EMR under Service -> Analytics. 
-  ii) Click on Create Cluster, select 'Go to Advanced Options"
-  iii) Give any thing for cluster name
-  iv) For log folder s3 location , select logfiles from the s3 bucket you created and append some unique logfile folder which will be created by EMR. So your log file location should belike this "s3://<yourbucket>/logfiles/<unique folder>
-  v) In Hardware configuration section , for master go with m3.medium, for core select a Instance type. If you want to experiemnt to process 2-3 days files instead of one month, start with m3.xlarge with 2 or 3 count. 
-  vi) Under security and access section, select the keypair you created initially. So that you will be able to login to Master node after cluster created. 
-   vii) Under steps, select step, "streaming Program" and click on configure and add. 
-   viii) Give any name for Name of the step, provider mapper, reducer scripts to mapper and reducer. 
-   ix) For Input s3 location, provide the folder of input files. If you want to start with 2-3 days files, create another folder in your bucket and copy those files to that folder and assign that folder in this field. 
-   x) output s3 location will be your ouput folder and add an unique name after that. If you provide existing folder , the step will fail. So location should be like s3://<your bucket>/output/<New folder name> 
-   xi) Now click "add" . This step/job will be executed after the cluster is created. 
-   xii) You are ready to create cluster by clicking on "create cluster". Wait ..there is one more step remaining. 
-   xiii) For monitoring the status of the jobs and counters/configuration etc , hadoop will be pushing data to a web server in Master Node. To access the same from your local computer , you need to create a proxy tunnel. Steps for the same : 
-xiv) Then proceed by clicking on "create cluster". 
-6) There are many things you can check while job is running : 
-   i) Cluster will not create immediately after you click on create cluster. Amazon will take approximately 5-8 minutes to provision virtual servers, install required software, configure master and core/slave nodes. 
-   ii) As soon as the status of master in summary changes from provisioning to bootstrapping, master public DNS Ip address will be appeared. You can proxy throttle to that using putty as mentioned in above steps. Then in your firefox/chrome, you can type "http://<Master Ip Address>:8088" . And you are ready to monitor and review Cluster configuration, counters, jobs etc. Some time when you click on some links you may get can not access message, then in the URL bar replace the Internal Ip adress with Master Public IP address. 
-   iii) Once the status of both Master and Core changes to "running" , under the steps first hadoop debugging step will complete. Then the job/step you created will execute. 
-   iv) You can monitor the step status by clickon on view jobs against the step, and click on view tasks. You can see how many total tasks, pending tasks, completed tasks and running tasks. 
-   v) Once the job completed, the out put will be stored in output folder you assigned while creating the task 
+  i) After loginto your aws account , select EMR under Service -> Analytics.   
+  ii) Click on Create Cluster, select 'Go to Advanced Options"  
+  iii) Give any thing for cluster name  
+  iv) For log folder s3 location , select logfiles from the s3 bucket you created and append some unique logfile folder which will be created by EMR. So your log file location should belike this "s3://<yourbucket>/logfiles/<unique folder>  
+  v) In Hardware configuration section , for master go with m3.medium, for core select a Instance type. If you want to experiemnt to process 2-3 days files instead of one month, start with m3.xlarge with 2 or 3 count.   
+  vi) Under security and access section, select the keypair you created initially. So that you will be able to login to Master node after cluster created.   
+   vii) Under steps, select step, "streaming Program" and click on configure and add.   
+   viii) Give any name for Name of the step, provider mapper, reducer scripts to mapper and reducer.   
+   ix) For Input s3 location, provide the folder of input files. If you want to start with 2-3 days files, create another folder in your bucket and copy those files to that folder and assign that folder in this field.   
+   x) output s3 location will be your ouput folder and add an unique name after that. If you provide existing folder , the step will fail. So location should be like s3://<your bucket>/output/<New folder name>   
+   xi) Now click "add" . This step/job will be executed after the cluster is created.   
+   xii) You are ready to create cluster by clicking on "create cluster". Wait ..there is one more step remaining.   
+   xiii) For monitoring the status of the jobs and counters/configuration etc , hadoop will be pushing data to a web server in Master Node. To access the same from your local computer , you need to create a proxy tunnel. Steps for the same :   
+xiv) Then proceed by clicking on "create cluster".   
+6) There are many things you can check while job is running :   
+   i) Cluster will not create immediately after you click on create cluster. Amazon will take approximately 5-8 minutes to provision virtual servers, install required software, configure master and core/slave nodes.   
+   ii) As soon as the status of master in summary changes from provisioning to bootstrapping, master public DNS Ip address will be appeared. You can proxy throttle to that using putty as mentioned in above steps. Then in your firefox/chrome, you can type "http://<Master Ip Address>:8088" . And you are ready to monitor and review Cluster configuration, counters, jobs etc. Some time when you click on some links you may get can not access message, then in the URL bar replace the Internal Ip adress with Master Public IP address.   
+   iii) Once the status of both Master and Core changes to "running" , under the steps first hadoop debugging step will complete. Then the job/step you created will execute.   
+   iv) You can monitor the step status by clickon on view jobs against the step, and click on view tasks. You can see how many total tasks, pending tasks, completed tasks and running tasks.   
+   v) Once the job completed, the out put will be stored in output folder you assigned while creating the task   
 
 6) Each reducer will create one out put file. Hence your results are not stored in one file. To merge all the output files and sort by number of requests, login to EC2 micro instance ( same procedure when did for extracting data from wiki) , do aws configure, copy the shell script "  " from github folder "   " to ec2. 
 Execute the shell script by editing the fields with actual values. Now in results folder there are two files created : one with top 100 pages and another all pages sort by number of requests in descending order. 
