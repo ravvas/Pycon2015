@@ -30,12 +30,10 @@ Now launch putty session with hostname as ec2-user@IP-Adrress. Now you will be a
   iii) download index file containing links for each hour in  a month.  say you want to extract september month log files. Type in shell prompt : wget https://dumps.wikimedia.org/other/pagecounts-raw/2015/2015-09/   
     Now you have index.html file copied to the directory. 
    iv) This index file have all the links for the September month log files. So to extract the log file names from the index.html, execute the python program extractgz.py from "Extract data" folder by copying that to ec2 and typing "python extractgz.py > allfilenames" . Now a file called "allfilenames" created in the same directory with all the file names.  
-   v) Execute the shell script by typing "    " This will download each of the file ( sequentially) unizip the file, upload it to s3 and remove local file.  Normally Amazon downloads these files at the rate of 2MB by sec and each file download time is approximately 50 to 60 sec. So approximately it will take 12 hours to download the files. So run the shell script in background so that even after disconnecting the putty session, the script execution will continue. To check whether all the files are downloaded , check the S3 bucket periodically and once all the files are downloaded , you can terminate the ec2 session by going to ec2 services and terminate the instance.  
-    vi) 
+   v) update the bucket name you create with <your buckethere> " in the sh file. Execute the shell script by typing "bash downloadwikifiles.sh allfilenames". This will download each of the file ( sequentially) unizip the file, upload it to s3 and remove local file.  Normally Amazon downloads these files at the rate of 2MB by sec and each file download time is approximately 50 to 60 sec. So approximately it will take 12 hours to download the files. So run the shell script in background so that even after disconnecting the putty session, the script execution will continue. To check whether all the files are downloaded , check the S3 bucket periodically and once all the files are downloaded , you can terminate the ec2 session by going to ec2 services and terminate the instance.  
 
-TODO Ipython to test locally
 4) In the s3 bucket you created, create folders called input, logfiles, output, scripts and output. 
-3) Upload the mapper and reducer scripts to scripts folder
+3) Upload the mapper and reducer scripts from "mapreduce scripts" folder in github to scripts folder in your s3 bucket.
 5) launch EMR ( Hadoop cluster) and Run Map reducer using Hadoop streaming. 
 6) Process the output files using a shell script in ec2. 
 7) Push the results to s3
