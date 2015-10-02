@@ -26,12 +26,15 @@ Now click on View Instances. Once the instance status changes to "Running" , sel
 Now launch putty session with hostname as ec2-user@IP-Adrress. Now you will be able to login to ec2 instance you created. 
 ii) Configure AWS S3 in amazon ec2 instance  ..This will let you copy files between s3 and amazon ec2. 
     For this type "aws configure" , in the prompt enter credentials you copied when create IAM profile. for region and output format, leave blank. 
-    iii) download index file containing links for each hour in  a month.  type wget 
-iv) Run python script to extract links from the index file 
-v) Run shell script that downloads the files from wikipedia, unizip the file, upload it to s3 and remove local file  
+    iii) download index file containing links for each hour in  a month.  say you want to extract september month log files. Type in shell prompt : wget https://dumps.wikimedia.org/other/pagecounts-raw/2015/2015-09/ 
+    Now you have index.html file copied to the directory. 
+    iv) This index file have all the links for the September month log files. So to extract the log file names from the index.html, execute the python program "    " . Now a file called "   " have all the file names. 
+    v) Execute the shell script by typing "    " This will download each of the file ( sequentially) unizip the file, upload it to s3 and remove local file.  Normally Amazon downloads these files at the rate of 2MB by sec and each file download time is approximately 50 to 60 sec. So approximately it will take 12 hours to download the files. So run the shell script in background so that even after disconnecting the putty session, the script execution will continue. To check whether all the files are downloaded , check the S3 bucket periodically and once all the files are downloaded , you can terminate the ec2 session by going to ec2 services and terminate the instance. 
+    vi) 
+
 TODO Ipython to test locally
-3) Create mapper and reducer for the problem statement and upload them to s3
-4) Setup buckets in s3 for input,scripts,output
+4) In the s3 bucket you created, create folders called input, logfiles, output, scripts and output. 
+3) Upload the mapper and reducer scripts to scripts folder
 5) launch EMR ( Hadoop cluster) and Run Map reducer using Hadoop streaming. 
 6) Process the output files using a shell script in ec2. 
 7) Push the results to s3
