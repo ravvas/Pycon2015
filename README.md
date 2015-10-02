@@ -62,11 +62,11 @@ Now launch putty session with hostname as ec2-user@IP-Adrress. Now you will be a
    iv.  Execute the script by typing "bash processout.sh <filename>" . Filename will be the file name you want to name for the results.   
    v.  Now in results folder there are two files created :  top25<filename>.csv and  one with top 25 pages and another final<filename> all pages sort by number of requests in descending order. These files will be created in results folder in your bucket in s3.  
 
-Tools we use for the case study : 
-1) AWS CLI  - Command level interface to launch the amazon aws  
-2) Putty   
-3) Python   
-4) IPython   
+Tools we use for the case study :  
+--  AWS CLI  - Command level interface to launch the amazon aws  
+--   Putty   
+--   Python   
+--   IPython   
 
 
 
